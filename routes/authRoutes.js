@@ -10,9 +10,7 @@ router.get('/auth/google',
 
 router.get('/auth/google/callback',
     passport.authenticate('google'),
-    (req, res) => {
-        res.redirect('/api/current_user');
-    }
+    
 );
 
 router.get('/api/logout',  (req, res, next) => {
@@ -21,7 +19,7 @@ router.get('/api/logout',  (req, res, next) => {
             return next(err);
         }
     });
-    res.redirect('/');
+   
 });
 
 router.get('/api/current_user',  (req, res, next) => {
