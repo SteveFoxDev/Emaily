@@ -7,17 +7,15 @@ export default defineConfig({
   server: {
     port: 3000,
     proxy: {
-      '/auth': {
+      '/auth/google': {
         target: 'http://localhost:5000',
-        changeOrigin: true,
-        secure: false
+        secure: false,
       },
       '/api': {
         target: 'http://localhost:5000',
-        changeOrigin: true,
         secure: false
       },
-      
+
     }
   }
 })

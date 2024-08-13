@@ -51,10 +51,6 @@ app.use((req, res, next) => {
 // <<< --- Auth Routes --- >>>
 app.use('/', authRoutes)
 
-app.get('/',  (req, res, next) => {
-    res.send({hello: 'world'});
-});
-
 
 // ========== SERVER ==========
 // ============================

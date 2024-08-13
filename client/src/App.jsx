@@ -9,11 +9,11 @@ import {
 } from "react-router-dom";
 
 import Header from "./components/Header";
+import Landing from "./components/Landing";
+import Dashboard from "./components/Dashboard";
+import SurveyNew from "./components/SurveyNew";
 import "./App.css";
 
-const Dashboard = () => <h2>Dashboard</h2>;
-const SurveyNew = () => <h2>SurveyNew</h2>;
-const Landing = () => <h2>Landing</h2>;
 
 class App extends Component {
   componentDidMount() {

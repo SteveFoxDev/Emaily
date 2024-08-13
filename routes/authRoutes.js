@@ -8,7 +8,9 @@ router.get('/auth/google',
 
 router.get('/auth/google/callback',
     passport.authenticate('google'),
-    
+    (req, res, next) => {
+        res.redirect('/surveys');
+    }
 );
 
 router.get('/api/logout',  (req, res, next) => {
@@ -17,12 +19,11 @@ router.get('/api/logout',  (req, res, next) => {
             return next(err);
         }
     });
-   res.send('logged out');
+   res.redirect('/');
 });
 
 router.get('/api/current_user',  (req, res, next) => {
     const user = req.user;
-    
     res.send(user);
 });
 
