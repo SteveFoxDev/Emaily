@@ -4,4 +4,6 @@ module.exports = {
     mongoURI: process.env.MONGO_URI,
     cookieKey: process.env.COOKIE_KEY,
     googleRedirectURI: 'https://glacial-anchorage-15396-a039fe345a7d.herokuapp.com',
+    stripePublishableKey: process.env.STRIPE_PUBLISHABLE_KEY,
+    stripeSecretKey: process.env.STRIPE_SECRET_KEY 
 };
