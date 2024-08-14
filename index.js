@@ -5,7 +5,9 @@ const passport = require('passport');
 
 require('./services/passport');
 const keys = require('./config/keys');
+const ExpressError = require('./utilities/ExpressError');
 const authRoutes = require('./routes/authRoutes');
+const billingRoutes = require('./routes/billingRoutes');
 
 // ========== MONGOOSE CONNECTION ==========
 // =========================================
@@ -23,6 +25,8 @@ db.once("open", () => {
 // ===============================
 const app = express();
 
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 // <<< --- Passport / Cookie Setup --- >>>
 app.use(
     cookieSession({
@@ -50,7 +54,20 @@ app.use((req, res, next) => {
 // ============================
 // <<< --- Auth Routes --- >>>
 app.use('/', authRoutes)
+// <<< --- Billing Routes --- >>>
+app.use('/', billingRoutes);
 
+// ========== ERROR HANDLER ==========
+// ===================================
+app.all('*', (req, res, next) => {
+    next(new ExpressError('Page Not Found', 404));
+});
+
+app.use((error, req, res, next) => {
+    const { statusCode = 500 } = error;
+    if(!error.message) error.message = 'Something Went Wrong';
+    res.headerSent ? next(error) : res.status(statusCode).json(error.message);
+});
 
 // ========== SERVER ==========
 // ============================
