@@ -62,7 +62,7 @@ app.use('/', billingRoutes);
 // =====================================
 if (process.env.NODE_ENV === 'production'){
     // <<< --- React Files --- >>>
-    app.use(express.static(';client/build'));
+    app.use(express.static('client/dist'));
     // <<< --- REACT Index.html --- >>>
     app.get('*',  (req, res, next) => {
         res.sendFile(path.resolve(__dirname, 'client', 'dist', 'index.html'));
