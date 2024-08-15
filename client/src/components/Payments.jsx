@@ -11,7 +11,7 @@ class Payments extends Component {
                 description='$5 for 5 credits'
                 amount={500}
                 token={token => this.props.handleToken(token)}
-                stripeKey={import.meta.env.VITE_STRIPE_KEY}
+                stripeKey='pk_test_51PnSwpRoE5CofNle9Hig6jspQNNrCpRxHvVHyaxrQ14IGxtT0KdG5I3hmij5LiHdoJtGdui5SU0fQDT3eTxmVYDX00zE0GErJJ'
             >
                 <button className='btn'>Add Credits</button>
             </StripeCheckout>
