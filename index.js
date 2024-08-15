@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const mongoose = require('mongoose');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
@@ -57,6 +58,16 @@ app.use('/', authRoutes)
 // <<< --- Billing Routes --- >>>
 app.use('/', billingRoutes);
 
+// ========== FRONTEND ROUTES ==========
+// =====================================
+if (process.env.NODE_ENV === 'production'){
+    // <<< --- React Files --- >>>
+    app.use(express.static(';client/build'));
+    // <<< --- REACT Index.html --- >>>
+    app.get('*',  (req, res, next) => {
+        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+    });
+};
 // ========== ERROR HANDLER ==========
 // ===================================
 app.all('*', (req, res, next) => {
