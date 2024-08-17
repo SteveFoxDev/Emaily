@@ -1,6 +1,8 @@
 const express = require('express');
 const passport = require('passport');
 
+const ExpressError = require('../utilities/ExpressError');
+
 const router = express.Router();
 
 
@@ -18,7 +20,7 @@ router.get('/auth/google/callback',
 router.get('/api/logout',  (req, res, next) => {
     req.logOut((err) => {
         if(err) {
-            return next(err);
+            return next(new ExpressError('Something Went Wrong', 500));
         }
     });
    res.redirect('/');

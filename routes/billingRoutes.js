@@ -1,6 +1,7 @@
 const express = require('express');
 
 const { isLoggedIn } = require('../middleware');
+const ExpressError = require('../utilities/ExpressError');
 const catchAsync = require('../utilities/catchAsync');
 const keys = require('../config/keys');
 const stripe = require('stripe')(keys.stripeSecretKey);
@@ -16,7 +17,7 @@ router.post('/api/stripe', isLoggedIn, catchAsync(async (req, res, next) => {
         source: req.body.id,   
     });
     if(!charge){
-        return next(error);
+        return next(new ExpressError('Something Went Wrong', 500));
     }
     user.credits += 5;
     await user.save();
