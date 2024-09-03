@@ -55,14 +55,14 @@ app.use((req, res, next) => {
 // ========== ROUTES ==========
 // ============================
 // <<< --- Auth Routes --- >>>
-app.use('/', authRoutes)
+app.use('/', authRoutes);
 // <<< --- Billing Routes --- >>>
 app.use('/', billingRoutes);
 // <<< --- Survey Routes --- >>>
 app.use('/', surveyRoutes);
 
-// ========== FRONTEND ROUTES ==========
-// =====================================
+// ========== FRONTEND FILES SERVER ==========
+// ===========================================
 if (process.env.NODE_ENV === 'production'){
     // <<< --- React Files --- >>>
     app.use(express.static('client/dist'));

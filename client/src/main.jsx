@@ -7,7 +7,9 @@ import App from './App.jsx'
 
 import reducers from './reducers/index.js';
 import '../node_modules/materialize-css/dist/css/materialize.min.css';
-import './index.css'
+import './index.css';
+import axios from 'axios';
+window.axios = axios;
 
 const store = createStore(reducers, {}, applyMiddleware(thunk));
 
