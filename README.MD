@@ -8,8 +8,8 @@ Steps to run on your machine:
 
 note: There are various keys needed to run this without breaking, Google OAuth, Stripe, MongoDB URl etc.
 
-1. npm install 
+1. npm install -
     install packages in the server and client directories
 
-2. npm run dev
+2. npm run dev -
     runs both frontend and backend dev servers

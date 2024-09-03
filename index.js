@@ -9,6 +9,7 @@ const keys = require('./config/keys');
 const ExpressError = require('./utilities/ExpressError');
 const authRoutes = require('./routes/authRoutes');
 const billingRoutes = require('./routes/billingRoutes');
+const surveyRoutes = require('./routes/surveyRoutes');
 
 // ========== MONGOOSE CONNECTION ==========
 // =========================================
@@ -57,6 +58,8 @@ app.use((req, res, next) => {
 app.use('/', authRoutes)
 // <<< --- Billing Routes --- >>>
 app.use('/', billingRoutes);
+// <<< --- Survey Routes --- >>>
+app.use('/', surveyRoutes);
 
 // ========== FRONTEND ROUTES ==========
 // =====================================
