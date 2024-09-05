@@ -11,7 +11,7 @@ import {
 import Header from "./components/Header";
 import Landing from "./components/Landing";
 import Dashboard from "./components/Dashboard";
-import SurveyNew from "./components/SurveyNew";
+import SurveyNew from "./components/surveys/SurveyNew";
 import "./App.css";
 
 
@@ -21,15 +21,18 @@ class App extends Component {
   }
   render() {
     return (
-      <div className="container">
+      <div>
         <Router>
           <Header />
+          <div className="container">
           <Routes>
             <Route path="/" element={<Landing />} />
             <Route path="/surveys" element={<Dashboard />} />
             <Route path="/surveys/new" element={<SurveyNew />} />
             <Route path="/*" element={<Navigate to="/" replace />} />
           </Routes>
+          </div>
+          
         </Router>
       </div>
     );
