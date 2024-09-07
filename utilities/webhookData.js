@@ -3,7 +3,7 @@ const _ = require("lodash");
 const { Path } = require("path-parser");
 const { URL } = require("url");
 
-function getFeedback(body){
+function getFeedback(body) {
   const p = new Path("/api/surveys/:surveyId/:choice");
 
   const events = _.chain(body)
@@ -19,10 +19,7 @@ function getFeedback(body){
     .uniqBy("email", "surveyId")
     .value();
 
-    return events;
-};
+  return events;
+}
 
 module.exports = getFeedback;
-
-
-

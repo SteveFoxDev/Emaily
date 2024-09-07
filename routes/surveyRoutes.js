@@ -1,20 +1,20 @@
-const express = require('express');
+const express = require("express");
 
-const { isLoggedIn, hasCredits } = require('../middleware');
-const getFeedback = require('../utilities/webhookData');
-const Survey = require('../models/survey');
-const catchAsync = require('../utilities/catchAsync');
-const Mailer = require('../services/Mailer');
-const surveyTemplate = require('../services/emailTemplates/surveyTemplate');
+const { isLoggedIn, hasCredits } = require("../middleware");
+const getFeedback = require("../utilities/webhookData");
+const Survey = require("../models/survey");
+const catchAsync = require("../utilities/catchAsync");
+const Mailer = require("../services/Mailer");
+const surveyTemplate = require("../services/emailTemplates/surveyTemplate");
 
 const router = express.Router();
 
-router.get('/api/surveys/:surveyId/:choice', (req, res, next) => {
-  res.send('Thank You for your participation!');
+router.get("/api/surveys/:surveyId/:choice", (req, res, next) => {
+  res.send("Thank You for your participation!");
 });
 
 router.post(
-  '/api/surveys',
+  "/api/surveys",
   isLoggedIn,
   hasCredits,
   catchAsync(async (req, res, next) => {
@@ -25,7 +25,7 @@ router.post(
       subject,
       body,
       recipients: recipients
-        .split(',')
+        .split(",")
         .map((email) => ({ email: email.toLowerCase().trim() })),
       _user: req.user.id,
       dateSent: Date.now(),
@@ -40,10 +40,10 @@ router.post(
     req.user.credits -= 1;
     const user = await req.user.save();
     res.send(user);
-  })
+  }),
 );
 
-router.post('/api/surveys/webhooks', (req, res, next) => {
+router.post("/api/surveys/webhooks", (req, res, next) => {
   const feedback = getFeedback(req.body);
   for (let f of feedback) {
     Survey.updateOne(
@@ -55,9 +55,9 @@ router.post('/api/surveys/webhooks', (req, res, next) => {
       },
       {
         $inc: { [f.choice]: 1 }, // increment by 1
-        $set: { 'recipients.$.clicked': true }, // set clicked to true
+        $set: { "recipients.$.clicked": true }, // set clicked to true
         lastRespnded: new Date(),
-      }
+      },
     ).exec();
   }
 

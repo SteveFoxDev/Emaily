@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-import * as actions from '../../actions';
+import * as actions from "../../actions";
 import formFields from "./formFields";
 
 const SurveyFormReview = ({ onCancel, formValues, submitSurvey }) => {
@@ -21,14 +21,17 @@ const SurveyFormReview = ({ onCancel, formValues, submitSurvey }) => {
   return (
     <div className="container ">
       <h5>Please confirm your entries</h5>
-        {reviewFields()}
+      {reviewFields()}
       <button className="btn red accent-2" onClick={onCancel}>
         Back
       </button>
-      <button onClick={() => submitSurvey(formValues, navigate)} className="btn blue-grey right">
+      <button
+        onClick={() => submitSurvey(formValues, navigate)}
+        className="btn blue-grey right"
+      >
         Send Survey
         <i className="material-icons right">send</i>
-        </button>
+      </button>
     </div>
   );
 };

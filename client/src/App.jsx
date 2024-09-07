@@ -1,6 +1,6 @@
 import { Component } from "react";
 import { connect } from "react-redux";
-import * as actions from './actions/index';
+import * as actions from "./actions/index";
 import {
   BrowserRouter as Router,
   Routes,
@@ -14,7 +14,6 @@ import Dashboard from "./components/Dashboard";
 import SurveyNew from "./components/surveys/SurveyNew";
 import "./App.css";
 
-
 class App extends Component {
   componentDidMount() {
     this.props.fetchUser();
@@ -25,14 +24,13 @@ class App extends Component {
         <Router>
           <Header />
           <div className="container">
-          <Routes>
-            <Route path="/" element={<Landing />} />
-            <Route path="/surveys" element={<Dashboard />} />
-            <Route path="/surveys/new" element={<SurveyNew />} />
-            <Route path="/*" element={<Navigate to="/" replace />} />
-          </Routes>
+            <Routes>
+              <Route path="/" element={<Landing />} />
+              <Route path="/surveys" element={<Dashboard />} />
+              <Route path="/surveys/new" element={<SurveyNew />} />
+              <Route path="/*" element={<Navigate to="/" replace />} />
+            </Routes>
           </div>
-          
         </Router>
       </div>
     );

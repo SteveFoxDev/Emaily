@@ -1,5 +1,5 @@
-const sgMail = require('@sendgrid/mail');
-const keys = require('../config/keys');
+const sgMail = require("@sendgrid/mail");
+const keys = require("../config/keys");
 
 class Mailer {
   constructor({ subject, recipients }, content) {

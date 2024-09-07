@@ -1,33 +1,33 @@
-const express = require('express');
-const passport = require('passport');
+const express = require("express");
+const passport = require("passport");
 
-const ExpressError = require('../utilities/ExpressError');
+const ExpressError = require("../utilities/ExpressError");
 
 const router = express.Router();
 
 router.get(
-  '/auth/google',
-  passport.authenticate('google', { scope: ['profile', 'email'] })
+  "/auth/google",
+  passport.authenticate("google", { scope: ["profile", "email"] }),
 );
 
 router.get(
-  '/auth/google/callback',
-  passport.authenticate('google'),
+  "/auth/google/callback",
+  passport.authenticate("google"),
   (req, res, next) => {
-    res.redirect('/surveys');
-  }
+    res.redirect("/surveys");
+  },
 );
 
-router.get('/api/logout', (req, res, next) => {
+router.get("/api/logout", (req, res, next) => {
   req.logOut((err) => {
     if (err) {
-      return next(new ExpressError('Something Went Wrong', 500));
+      return next(new ExpressError("Something Went Wrong", 500));
     }
   });
-  res.redirect('/');
+  res.redirect("/");
 });
 
-router.get('/api/current_user', (req, res, next) => {
+router.get("/api/current_user", (req, res, next) => {
   const user = req.user;
   res.send(user);
 });

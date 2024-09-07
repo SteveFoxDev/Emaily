@@ -13,5 +13,3 @@ module.exports.hasCredits = (req, res, next) => {
   }
   next();
 };
-
-

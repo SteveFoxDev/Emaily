@@ -6,8 +6,6 @@ import SurveyField from "./SurveyField";
 import validateEmails from "../../utils/validateEmails";
 import formFields from "./formFields";
 
-
-
 class SurveyForm extends Component {
   renderFields() {
     return (
@@ -28,9 +26,7 @@ class SurveyForm extends Component {
   render() {
     return (
       <div className="container">
-        <form
-          onSubmit={this.props.handleSubmit(this.props.onSurveySubmit)}
-        >
+        <form onSubmit={this.props.handleSubmit(this.props.onSurveySubmit)}>
           {this.renderFields()}
           <Link to="/surveys" className="btn red accent-2">
             Cancel
@@ -47,7 +43,7 @@ class SurveyForm extends Component {
 function validate(values) {
   const errors = {};
 
-  errors.recipients = validateEmails(values.recipients || '');
+  errors.recipients = validateEmails(values.recipients || "");
 
   formFields.forEach((f) => {
     if (!values[f.name]) {
@@ -55,13 +51,11 @@ function validate(values) {
     }
   });
 
-  
-
   return errors;
 }
 
 export default reduxForm({
   validate,
   form: "surveyForm",
-  destroyOnUnmount: false
+  destroyOnUnmount: false,
 })(SurveyForm);
