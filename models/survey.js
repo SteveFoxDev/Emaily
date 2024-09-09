@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
@@ -14,9 +14,10 @@ const surveySchema = new Schema({
   recipients: [recipientSchema],
   yes: { type: Number, default: 0 },
   no: { type: Number, default: 0 },
-  _user: { type: Schema.Types.ObjectId, ref: "User" },
+  _user: { type: Schema.Types.ObjectId, ref: 'User' },
   dateSent: Date,
   lastResponded: Date,
+  totalSent: { type: Number }
 });
 
-module.exports = mongoose.model("Survey", surveySchema);
+module.exports = mongoose.model('Survey', surveySchema);

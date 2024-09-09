@@ -1,18 +1,18 @@
-import { Component } from "react";
-import { connect } from "react-redux";
-import * as actions from "./actions/index";
+import { Component } from 'react';
+import { connect } from 'react-redux';
+import * as actions from './actions/index';
 import {
   BrowserRouter as Router,
   Routes,
   Route,
   Navigate,
-} from "react-router-dom";
+} from 'react-router-dom';
 
-import Header from "./components/Header";
-import Landing from "./components/Landing";
-import Dashboard from "./components/Dashboard";
-import SurveyNew from "./components/surveys/SurveyNew";
-import "./App.css";
+import Header from './components/Header';
+import Landing from './components/Landing';
+import Dashboard from './components/Dashboard';
+import SurveyNew from './components/surveys/SurveyNew';
+import './App.css';
 
 class App extends Component {
   componentDidMount() {
