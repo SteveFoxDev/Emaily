@@ -1,8 +1,12 @@
-#EMAILY
+# EMAILY
 
-This is code from a Udemy Project by Stephen Grider called Node with React: Fullstack Web Development.
+MERN stack app, allows users to send out mass email surveys and display the outcome of the survey on the dashboard.
 
-My motivation for taking this course is to get another React Project under my belt to become more familiar with React. I also wanted to understand how the React Frontend works with the Node/Express Backend in Production and this course jumps right in to deploying your app.
+##
+
+This is code from a Udemy Project by Stephen Grider called Node with React: Fullstack Web Development. This app uses class based components which I had never used before. 
+
+My motivation for taking this course was to get another React Project under my belt to become more familiar with React. I also wanted to understand how the React Frontend works with the Node/Express Backend in Production and this course jumps right in to deploying your app.
 
 Steps to run on your machine:
 
