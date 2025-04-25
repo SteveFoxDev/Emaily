@@ -2,12 +2,28 @@
 
 MERN stack app, allows users to send out mass email surveys and display the outcome of the survey on the dashboard.
 
-##
+## About
 
 This is code from a Udemy Project by Stephen Grider called Node with React: Fullstack Web Development. This app uses class based components which I had never used before. 
 
 My motivation for taking this course was to get another React Project under my belt to become more familiar with React. I also wanted to understand how the React Frontend works with the Node/Express Backend in Production and this course jumps right in to deploying your app.
 
+## Technologies used
+
+* React
+* JavaScript
+* NodeJS
+* Express
+* MongoDB
+* Mongoose
+* Google Oauth
+* async thunk
+* HTML
+* CSS3
+* Git
+* GitHub
+
+## How to run
 Steps to run on your machine:
 
 note: There are various keys needed to run this without breaking, Google OAuth, Stripe, MongoDB URl etc.
